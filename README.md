@@ -1,7 +1,11 @@
+#React RM
 # 202-react_rm
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> b742b40 (Preliminary Working App)
 Create a Character Page for Rick and Morty
 
 Using https://rickandmortyapi.com/api/character api to fetch data to be displayed in your own react application.
@@ -23,4 +27,8 @@ Stretch:
 - Create a next page and previous page button that fetch the next 20 or previous 20 characters.
 (Hint: use react state to hold the urls from the response)
 Stretch Stretch:
+<<<<<<< HEAD
 - Click on the card and flip the card over to display the number of episodes the character was in, location and origin.
+=======
+- Click on the card and flip the card over to display the number of episodes the character was in, location and origin.
+>>>>>>> b742b40 (Preliminary Working App)

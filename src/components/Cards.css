@@ -1,0 +1,23 @@
+
+.card-deck{
+    display: flex;
+    margin: auto
+}
+
+.card{
+    display: flex;
+    justify-content: center;
+    max-width: 320px;
+    min-width: 280px;
+    border: 1px solid black;
+    margin: 15px;
+}
+
+.show{
+    display: flex;
+    justify-content: center;
+}
+
+.hide{
+    display: none;
+}

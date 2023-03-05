@@ -3,9 +3,9 @@ import { useState, useEffect } from "react";
 // import $ from 'jquery';
 // import ApiCall from "./ApiCall";
 import "./App.css";
-import "./Header";
+import Header from "./Header";
 import Cards from "./components/Cards";
-
+import Footer from "./Footer";
 
 const App = () => {
   //Set initial variables with initial state
@@ -17,7 +17,6 @@ const App = () => {
   const [previousPageURL, setPreviousPageURL] = useState("");
   const [currentPage, setCurrentPage] = useState("");
   const [pageCount, setPageCount] = useState(1);
-  
 
   const ApiCall = () => {
     //This function extracts the Rick & Morty character data and feeds it into an array
@@ -73,11 +72,9 @@ const App = () => {
     );
   };
 
- 
-
   return (
     <div className="container">
-      <h1>Welcome to the Rick & Morty Show Character Index</h1>
+      <Header />
       <PageButtons />
       <p>
         Page Number {currentPage} of {pageCount}
@@ -86,6 +83,7 @@ const App = () => {
       <div className="card-deck">
         <Cards data={allCharacters} />
       </div>
+      <Footer />
     </div>
   );
 };

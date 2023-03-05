@@ -1,11 +1,14 @@
-import React from 'react';
+import React from "react";
+import "./Footer.css";
 
-function Footer(props) {
-    return (
-        <div>
-            
-        </div>
-    );
+function Footer() {
+  return (
+    <footer>
+      <small>
+        &copy; Warrior Goat Web Services - 2023: All Rights Reserved
+      </small>
+    </footer>
+  );
 }
 
 export default Footer;

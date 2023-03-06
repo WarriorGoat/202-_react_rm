@@ -1,11 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
-// import $ from 'jquery';
-// import ApiCall from "./ApiCall";
 import "./App.css";
-import Header from "./Header";
+import Header from "./components/Header";
+import PageButtons from "./components/PageButtons";
 import Cards from "./components/Cards";
-import Footer from "./Footer";
+import Footer from "./components/Footer";
 
 const App = () => {
   //Set initial variables with initial state
@@ -18,64 +17,27 @@ const App = () => {
   const [currentPage, setCurrentPage] = useState("");
   const [pageCount, setPageCount] = useState(1);
 
-  const ApiCall = () => {
-    //This function extracts the Rick & Morty character data and feeds it into an array
-    // retrieve data from API and add to initial variables.
-    useEffect(() => {
-      async function fetchData() {
-        const response = await fetch(currentPageURL);
-        const data = await response.json();
-        setAllCharacters(data.results);
-        setNextPageURL(data.info.next);
-        setPreviousPageURL(data.info.prev);
-        let idNum = data.results[0].id;
-        setCurrentPage(Math.ceil(idNum / 20));
-        setPageCount(data.info.pages);
-      }
-      fetchData();
-      return;
-    }, [currentPageURL]);
-  };
-  ApiCall();
+  //Retrieve data from API and assign results to key variables
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch(currentPageURL);
+      const data = await response.json();
+      setAllCharacters(data.results);
+      setNextPageURL(data.info.next);
+      setPreviousPageURL(data.info.prev);
+      let idNum = data.results[0].id;
+      setCurrentPage(Math.ceil(idNum / 20));
+      setPageCount(data.info.pages);
+    }
+    fetchData();
+    return;
+  }, [currentPageURL]);  //track any changes to currentPageURL to trigger a new API call
 
-  const goToNextPage = () => {
-    setPreviousPageURL(currentPageURL);
-    setCurrentPageURL(nextPageURL);
-
-    console.log(currentPageURL);
-  };
-
-  const goToPreviousPage = () => {
-    setNextPageURL(currentPageURL);
-    setCurrentPageURL(previousPageURL);
-    console.log(currentPageURL);
-  };
-
-  const PageButtons = () => {
-    return (
-      <div className="buttons">
-        <button
-          type="button"
-          className="btn btn-secondary"
-          onClick={goToPreviousPage}
-        >
-          Previous
-        </button>
-        <button
-          type="button"
-          className="btn btn-secondary"
-          onClick={goToNextPage}
-        >
-          Next
-        </button>
-      </div>
-    );
-  };
 
   return (
     <div className="container">
       <Header />
-      <PageButtons />
+      <PageButtons previous={previousPageURL} next={ nextPageURL} set={setCurrentPageURL}/>
       <p>
         Page Number {currentPage} of {pageCount}
       </p>

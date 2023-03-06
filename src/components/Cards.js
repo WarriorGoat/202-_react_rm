@@ -4,7 +4,7 @@ import "./Cards.css";
 
 //This component imports the file data into a card
 const Cards = (props) => {
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(true);
 
   const ShowHide = () => {
     setIsActive(!isActive);

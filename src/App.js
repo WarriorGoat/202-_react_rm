@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import PageButtons from "./components/PageButtons";
-import Cards from "./components/Cards";
+import CardDeck from "./components/CardDeck";
 import Footer from "./components/Footer";
 
 const App = () => {
@@ -43,7 +43,7 @@ const App = () => {
       </p>
       <br />
       <div className="card-deck">
-        <Cards data={allCharacters} />
+        <CardDeck data={allCharacters} />
       </div>
       <Footer />
     </div>
